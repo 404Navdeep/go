@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .dots::after {
+      content: '';
+      animation: dots 1s steps(3, end) infinite;
+    }
+    @keyframes dots {
+      0% { content: ''; }
+      33% { content: '.'; }
+      66% { content: '..'; }
+      100% { content: '...'; }
+    }
+  </style>
+</head>
+<body>
+  <h2>Redirecting<span class="dots"></span></h2>
+  <p>Please wait a moment.</p>
+
+  <script>
+    const redirectUrl = "{{REDIRECT_URL}}";
+    setTimeout(() => {
+      window.location.href = redirectUrl;
+    }, 2000);
+  </script>
+</body>
+</html>
