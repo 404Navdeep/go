@@ -1,0 +1,4 @@
+sites:
+  - name: example
+    url: https://example.com
+    ip: true
