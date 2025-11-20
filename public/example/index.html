@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>Go</title>
+  <meta charset="UTF-8">
+  <script>
+    async function run() {
+      const res = await fetch("https://api.ipify.org?format=json");
+      const { ip } = await res.json();
+
+      await fetch("/api/store-ip", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ip })
+      });
+
+      window.location.href = "https://example.com";
+    }
+    run();
+  </script>
+</head>
+<body>Redirecting…</body>
+</html>
