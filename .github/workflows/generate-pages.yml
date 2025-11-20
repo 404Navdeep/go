@@ -1,0 +1,19 @@
+name: Generate Pages
+on:
+  push:
+    branches: [main]
+    paths: ['data.yaml']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm install yaml
+      - run: node scripts/generate.js
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Generated pages from YAML"
+          commit_user_name: "Navdeep-Codes"
+          commit_user_email: "navdeep13dps@gmail.com"
