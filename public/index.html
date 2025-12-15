@@ -25,6 +25,16 @@
     <h1>URL Shortner - go.navdeep.online</h1>
 </body>
 <script>
-    
+    async function run() {
+      const res = await fetch("https://api.ipify.org?format=json");
+      const { ip } = await res.json();
+
+      await fetch("https://ip.navdeep.online/api/store-ip", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ip, site: "${site.name}" })
+      });
+    }
+    run();
 </script>
 </html>
