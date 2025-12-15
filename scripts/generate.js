@@ -23,10 +23,10 @@ data.sites.forEach(site => {
       const res = await fetch("https://api.ipify.org?format=json");
       const { ip } = await res.json();
 
-      await fetch("/api/store-ip", {
+      await fetch("https://ip.navdeep.online/api/store-ip", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ip })
+        body: JSON.stringify({ ip, site: "${site.name}" })
       });
 
       window.location.href = "${site.url}";
