@@ -20,3 +20,6 @@ sites:
   - name: site
     url: https://navdeep.online/
     ip: true
+  - name: punjabi-speach
+    url: https://chatgpt.com/share/6943cb82-dbe8-800e-947e-c5066d21e495
+    ip: true
